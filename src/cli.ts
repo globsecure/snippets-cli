@@ -26,18 +26,28 @@ module.exports = () => {
     message: 'Please choose your snippet you want to generate',
     choices,
   }, {
-    name: 'name',
+    name: 'filename',
     type: 'input',
     message: 'Please input your template filename',
     validate: value => {
       const match = value.match(/^[_a-zA-Z][_a-zA-Z0-9]*$/);
+      return match ? true : 'Please input right file name';
+    }
+  },
+  {
+    name: 'name',
+    type: 'input',
+    message: 'Please input your template variable replace ( {{}} )',
+    validate: value => {
+      const match = value.match(/^[_a-zA-Z][_a-zA-Z0-9]*$/);
       return match ? true : 'Please input right variable name';
-    },
-  }]
+    }
+  }
+  ]
 
-  inquery.prompt(promptConfigs).then(({ snippet, name }) => {
+  inquery.prompt(promptConfigs).then(({ snippet, name, filename }) => {
     const { template, target } = cfgs.snippets[snippet];
-    generateTmpl(template, name, target);
+    generateTmpl(template, filename, name, target);
   })
 
 }

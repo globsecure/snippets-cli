@@ -15,7 +15,7 @@ import * as mkdirp from 'mkdirp';
 import { readFile, isExisted, logSuccess, logError } from './util';
 
 
-const generateTmpl = (tmpl: string, name: string, target: string) => {
+const generateTmpl = (tmpl: string, filename: string, name: string, target: string) => {
   const tmplPath = path.resolve(tmpl);
   const tmplFileName = path.basename(tmpl);
   const fileExt = tmplFileName.substring(
@@ -32,7 +32,7 @@ const generateTmpl = (tmpl: string, name: string, target: string) => {
   // {{  }} 替换掉
   var result = tmplContent.replace(/\{\{(.*?)\}\}/g, name);
 
-  const outputFile = path.resolve(target, `${name}${fileExt}`);
+  const outputFile = path.resolve(target, `${filename}${fileExt}`);
   if (isExisted(outputFile)) {
     // create dir if not existed
     logError(`${target} file existed`);
