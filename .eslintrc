@@ -1,8 +1,9 @@
 
 {
   "extends": "standard",
+  "parser": "@typescript-eslint/parser",
   "rules": {
-    "arrow-parens": [2, "always"],
+    "arrow-parens": [0, "always"],
     "space-before-function-paren": ["error", "always"],
     "quotes": 0,
     "semi": 0,

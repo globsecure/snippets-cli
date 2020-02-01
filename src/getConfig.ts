@@ -3,7 +3,6 @@
  * @date 2018/08/18
  * @description
  */
-
 import * as fs from 'fs';
 import * as debug from 'debug';
 import * as path from 'path';
@@ -13,17 +12,14 @@ import * as requireUncached from 'require-uncached';
 import { readFile, isExisted } from './util';
 
 // config files
-const CONFIG_FILES = [
-  '.snippetrc.js',
-  '.snippetrc.json',
-  '.snippetrc',
-]
+const CONFIG_FILES = ['.snippetrc.js', '.snippetrc.json', '.snippetrc'];
 
 /**
  * get Config file
  * @param dir current dir
  */
-const getConfigFromDir = (dir: string) => CONFIG_FILES.map(file => path.join(dir, file)).find(isExisted) || null;
+const getConfigFromDir = (dir: string) =>
+  CONFIG_FILES.map(file => path.join(dir, file)).find(isExisted) || null;
 
 /**
  * load JSON file config
@@ -40,7 +36,7 @@ const loadJSONFile = (filePath: string) => {
     e.message = `Cannot read config file: ${filePath}, Error: ${e.message}`;
     throw e;
   }
-}
+};
 
 /**
  * loadJSFile
@@ -57,7 +53,7 @@ const loadJSFile = (filePath: string) => {
     e.message = `Cannot read config file: ${filePath}, Error: ${e.message}`;
     throw e;
   }
-}
+};
 
 /**
  * load Legacy
@@ -74,7 +70,7 @@ const loadLegacyFile = (filePath: string) => {
     e.message = `Cannot read config file: ${filePath}, Error: ${e.message}`;
     throw e;
   }
-}
+};
 
 /**
  * loadConfig file
@@ -94,10 +90,6 @@ const loadConfigFile = (filePath: string) => {
       config = loadLegacyFile(filePath);
   }
   return config;
-}
+};
 
-export {
-  loadConfigFile,
-  getConfigFromDir,
-}
-
+export { loadConfigFile, getConfigFromDir };

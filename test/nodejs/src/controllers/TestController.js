@@ -7,7 +7,7 @@
 
 const Controller = require('egg').Controller;
 
-class {{var}}Controller extends Controller {
+class tEST extends Controller {
   async index() {
     const { ctx } = this;
     ctx.body = {
@@ -16,4 +16,4 @@ class {{var}}Controller extends Controller {
   }
 }
 
-module.exports = {{var}}Controller;
+module.exports = tEST;

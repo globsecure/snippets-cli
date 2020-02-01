@@ -12,21 +12,31 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
 
-import { readFile, isExisted, logSuccess, logError } from './util';
+import { readFile, isExisted, logSuccess, logError, toCamelCase } from './util';
 
-
-const generateTmpl = (tmpl: string, filename: string, name: string, target: string) => {
+const generateTmpl = (
+  tmpl: string,
+  name: string,
+  target: string,
+  filename?: string,
+  suffix?: string
+) => {
   const tmplPath = path.resolve(tmpl);
   const tmplFileName = path.basename(tmpl);
   const fileExt = tmplFileName.substring(
     tmplFileName.indexOf('.'),
-    tmplFileName.lastIndexOf('.'),
+    tmplFileName.lastIndexOf('.')
   );
   if (!isExisted(tmplPath)) {
     logError(`no such template file ${tmpl}`);
     return false;
   }
 
+  if (filename === null) {
+    filename = name;
+  }
+
+  filename = `${filename}${suffix}`;
 
   const tmplContent = readFile(tmplPath);
   // {{  }} 替换掉
@@ -47,8 +57,6 @@ const generateTmpl = (tmpl: string, filename: string, name: string, target: stri
   }
   logSuccess(`${name} generated in `);
   return true;
-}
+};
 
-export {
-  generateTmpl,
-}
+export { generateTmpl };

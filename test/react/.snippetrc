@@ -1,17 +1,17 @@
 {
   "snippets": {
     "controller": {
-      "name": "新建控制器",
+      "name": "Create controller",
       "template": "./snippet/controller.js.snippet",
       "target": "./controller"
     },
     "model": {
-      "name": "新建模型",
+      "name": "Create model",
       "template": "./snippet/model.js.snippet",
       "target": "./model"
     },
     "component": {
-      "name": "新建组件",
+      "name": "Create component",
       "template": "./snippet/component.js.snippet",
       "target": "./component"
     }
