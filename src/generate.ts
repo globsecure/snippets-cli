@@ -55,7 +55,7 @@ const generateTmpl = (
     logError(`${name} ${e} `);
     return false;
   }
-  logSuccess(`${name} generated in `);
+  logSuccess(`${name} generated in ${target}${filename}${fileExt}`);
   return true;
 };
 
