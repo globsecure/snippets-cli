@@ -36,7 +36,9 @@ const generateTmpl = (
     filename = name;
   }
 
-  filename = `${filename}${suffix}`;
+  if (suffix !== null) {
+    filename = `${filename}${suffix}`;
+  }
 
   const tmplContent = readFile(tmplPath);
   // {{  }} 替换掉
