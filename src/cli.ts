@@ -99,7 +99,7 @@ module.exports = () => {
         });
       } else {
         const { template, target } = cfgs.snippets[snippet];
-        generateTmpl(template, name, target, filename);
+        generateTmpl(template, name, target, filename, null);
       }
     });
 };
