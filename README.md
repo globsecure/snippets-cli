@@ -22,6 +22,37 @@ $ npm i snippets-cli -D
 ```js
 {
   "snippets": {
+    "scaffolding": {
+      "name": "Create scaffolding",
+      "type": "scaffolding",
+      "templates": {
+        "controller": {
+          "snippet": "./snippets/controller.js.snippet",
+          "target": "./src/controllers",
+          "suffix": "Controller"
+        },
+        "model": {
+          "snippet": "./snippets/model.js.snippet",
+          "target": "./src/models",
+          "suffix": ""
+        },
+        "service": {
+          "snippet": "./snippets/service.js.snippet",
+          "target": "./src/services",
+          "suffix": "Service"
+        },
+        "route": {
+          "snippet": "./snippets/route.js.snippet",
+          "target": "./src/routes",
+          "suffix": "Router"
+        },
+        "test": {
+          "snippet": "./snippets/controller.js.snippet",
+          "target": "./src/tests",
+          "suffix": ".test"
+        }
+      }      
+    },
     "controller": {
       // prompt message
       "name": "Create a new controller",
