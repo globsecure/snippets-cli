@@ -36,7 +36,7 @@ const generateTmpl = (
     filename = name;
   }
 
-  if (suffix !== null) {
+  if (suffix !== null && suffix !== '') {
     filename = `${filename}${suffix}`;
   }
 
